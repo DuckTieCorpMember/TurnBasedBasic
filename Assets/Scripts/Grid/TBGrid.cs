@@ -19,7 +19,7 @@ public class TBGrid : NetworkBehaviour
         {
             for(int j = 0; j < width; j++)
             {
-                GameObject tile = Instantiate(tilePrefab, new Vector3(i, 0,j), Quaternion.identity);
+                GameObject tile = Instantiate(tilePrefab, new Vector3(i, 0,j), Quaternion.identity, gameObject.transform);
                 NetworkServer.Spawn(tile);
                 grid[i,j] = tile.GetComponentInChildren<Renderer>().gameObject.transform.localScale.y;
             }

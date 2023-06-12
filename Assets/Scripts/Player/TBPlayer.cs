@@ -26,7 +26,7 @@ public class TBPlayer : NetworkBehaviour
         BoxCollider collider = unitToPlace.GetComponent<BoxCollider>();
         if(!CanPlaceUnit(collider, point)) { return; }
 
-        GameObject unitInstance = Instantiate(unitToPlace.gameObject, point, unitToPlace.transform.rotation);
+        GameObject unitInstance = Instantiate(unitToPlace.gameObject, point, Quaternion.identity);
         NetworkServer.Spawn(unitInstance, connectionToClient);
     }
     #endregion

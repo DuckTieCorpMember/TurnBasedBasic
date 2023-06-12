@@ -28,9 +28,8 @@ public class PlayerUnitControl : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, floorMask))
         {
-            //if (hit.collider == null) { UnselectUnit(); }
-            //Unit unit = hit.collider.GetComponent<Unit>();
-            //SelectUnit(unit);
+            if (hit.collider == null) { return; }
+            unit.GetComponent<UnitMovement>().SetMoveLocation(hit.point);
         }
     }
 }
